@@ -65,12 +65,12 @@ class Blog extends CI_Controller
 		if($_POST)
 		{
 			// Build post object
-			$this->post->id = $this->input->post('id', TRUE);
-			$this->post->title = $this->input->post('title', TRUE);
-			$this->post->content = $this->input->post('content', TRUE);
+			$this->post->id 		= $this->input->post('id', TRUE);
+			$this->post->title 		= $this->input->post('title', TRUE);
+			$this->post->content 	= $this->input->post('content', TRUE);
 			 
 			// Save post to database
-			if ($this->post->update($this->post)) {
+			if ($this->post->update()) {
 				redirect(base_url());
 			}
 		}

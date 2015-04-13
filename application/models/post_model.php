@@ -18,9 +18,13 @@ class Post_model extends CI_Model
         return $query->result();
     }
  
-    private function create($post) 
+    private function create() 
     {
-        return $this->db->insert('post', $this);
+		$data = array(
+			'title'		=> $this->title,
+			'content' 	=> $this->content
+		);
+        return $this->db->insert('post', $data);
     }
 	
 	public function read($id) 
@@ -29,7 +33,7 @@ class Post_model extends CI_Model
         return $query->row();
     }
      
-    public function update($post) 
+    public function update() 
     {
         $this->db->set('title', $this->title);
         $this->db->set('content', $this->content);
